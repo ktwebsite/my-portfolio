@@ -47,26 +47,29 @@ export function Skills() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" ref={ref} className="py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="skills" ref={ref} className="w-full py-32 bg-white">
+      <div className="w-full px-6 flex justify-center">
+        <div className="w-full max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.6 }}
-          className="mb-20"
+          className="!mb-20"
         >
-          <div className="text-sm tracking-[0.3em] text-gray-500 mb-4 text-center">
+          <div className="text-sm tracking-[0.3em] text-gray-500 !mb-4 text-center">
             SKILLS
           </div>
-          <h2 className="text-4xl md:text-5xl tracking-tight text-center mb-6">
+          <h2 className="text-4xl md:text-5xl tracking-tight text-center !mb-6">
             技術スタック
           </h2>
-          <p className="text-center text-gray-600 max-w-2xl mx-auto">
-            最新の技術とツールを活用し、高品質なプロダクトを提供します
-          </p>
+          <div className="w-full flex justify-center">
+            <p className="text-center text-gray-600 max-w-2xl">
+              最新の技術とツールを活用し、高品質なプロダクトを提供します
+            </p>
+          </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="!mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skills.map((skill, index) => {
             const Icon = skill.icon;
             return (
@@ -109,10 +112,10 @@ export function Skills() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ delay: 0.6, duration: 0.6 }}
-          className="mt-20 pt-20 border-t border-gray-200"
+          className="!mt-20 !pt-20 border-t border-gray-200"
         >
-          <div className="text-center mb-12">
-            <h3 className="text-2xl tracking-tight mb-3">使用技術</h3>
+          <div className="text-center !mb-12">
+            <h3 className="text-2xl tracking-tight !mb-3">使用技術</h3>
             <p className="text-sm text-gray-600">主に使用している技術スタック</p>
           </div>
           
@@ -130,6 +133,7 @@ export function Skills() {
             ))}
           </div>
         </motion.div>
+        </div>
       </div>
     </section>
   );
