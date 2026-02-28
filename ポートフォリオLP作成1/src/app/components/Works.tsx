@@ -54,15 +54,16 @@ export function Works() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section id="works" ref={ref} className="py-32 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="works" ref={ref} className="w-full py-32 bg-gray-50">
+      <div className="w-full px-6 flex justify-center">
+        <div className="w-full max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.6 }}
           className="mb-20"
         >
-          <div className="text-sm tracking-[0.3em] text-gray-500 mb-4 text-center">
+          <div className="text-sm tracking-[0.3em] text-gray-500 !mb-6 text-center">
             WORKS
           </div>
           <h2 className="text-4xl md:text-5xl tracking-tight text-center">
@@ -70,7 +71,7 @@ export function Works() {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="!mt-7 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={index}
@@ -132,6 +133,7 @@ export function Works() {
               </div>
             </motion.div>
           ))}
+        </div>
         </div>
       </div>
     </section>
