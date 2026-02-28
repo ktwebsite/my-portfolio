@@ -7,7 +7,7 @@ import { Navigation } from './components/Navigation';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="w-full min-h-screen bg-white">
       <Navigation />
       <Hero />
       <About />

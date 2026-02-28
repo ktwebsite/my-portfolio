@@ -7,13 +7,13 @@ export function About() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" ref={ref} className="py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="about" ref={ref} className="w-full py-32 bg-white">
+      <div className="w-full px-6 flex justify-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto"
+          className="w-full max-w-4xl"
         >
           <div className="text-sm tracking-[0.3em] text-gray-500 mb-4 text-center">
             ABOUT
