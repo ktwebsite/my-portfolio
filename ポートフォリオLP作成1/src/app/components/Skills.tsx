@@ -119,7 +119,7 @@ export function Skills() {
             <p className="text-sm text-gray-600">主に使用している技術スタック</p>
           </div>
           
-          <div className="flex flex-wrap justify-center items-center gap-8">
+          <div className="flex flex-wrap justify-center items-center gap-8 !mb-3">
             {['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'Figma', 'Git'].map((tech, index) => (
               <motion.div
                 key={index}

@@ -26,26 +26,30 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" ref={ref} className="py-32 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="contact" ref={ref} className="w-full py-32 bg-gray-50">
+      <div className="w-full px-6 flex justify-center">
+        <div className="w-full max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.6 }}
-          className="mb-20"
+          className="!mb-20"
         >
-          <div className="text-sm tracking-[0.3em] text-gray-500 mb-4 text-center">
+          <div className="text-sm tracking-[0.3em] text-gray-500 !mb-4 text-center">
             CONTACT
           </div>
-          <h2 className="text-4xl md:text-5xl tracking-tight text-center mb-6">
+          <h2 className="text-4xl md:text-5xl tracking-tight text-center !mb-6">
             お問い合わせ
           </h2>
-          <p className="text-center text-gray-600 max-w-2xl mx-auto">
-            お仕事のご依頼・ご相談など、お気軽にお問い合わせください
-          </p>
+          <div className="w-full flex justify-center">
+            <p className="text-center text-gray-600 max-w-2xl">
+              お仕事のご依頼・ご相談など、お気軽にお問い合わせください
+            </p>
+          </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-16 max-w-5xl mx-auto">
+        <div className="!mt-8 w-full flex justify-center">
+          <div className="grid md:grid-cols-2 gap-16 max-w-5xl w-full">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -168,6 +172,7 @@ export function Contact() {
               </motion.button>
             </form>
           </motion.div>
+          </div>
         </div>
 
         {/* Footer */}
@@ -175,12 +180,13 @@ export function Contact() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: 0.6, duration: 0.6 }}
-          className="mt-32 pt-12 border-t border-gray-200 text-center"
+          className="!mt-32 !pt-12 border-t border-gray-200 text-center"
         >
           <p className="text-sm text-gray-500">
             © 2026 Your Name. All rights reserved.
           </p>
         </motion.div>
+        </div>
       </div>
     </section>
   );
