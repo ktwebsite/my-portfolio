@@ -7,7 +7,7 @@ export function About() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" ref={ref} className="w-full py-32 bg-white">
+    <section id="about" ref={ref} className="w-full py-40 bg-white">
       <div className="w-full px-6 flex justify-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -15,15 +15,15 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="w-full max-w-4xl"
         >
-          <div className="text-sm tracking-[0.3em] text-gray-500 mb-4 text-center">
+          <div className="text-sm tracking-[0.3em] text-gray-500 mb-6 text-center">
             ABOUT
           </div>
-          
-          <h2 className="text-4xl md:text-5xl tracking-tight mb-12 text-center">
+
+          <h2 className="!mt-5 text-4xl md:text-5xl tracking-tight mb-16 text-center">
             シンプルで美しい<br />デザインを追求
           </h2>
-          
-          <div className="space-y-8 text-lg text-gray-600 leading-relaxed">
+
+          <div className="!mt-5 space-y-10 text-center text-gray-600 leading-relaxed">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -57,7 +57,7 @@ export function About() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="mt-16 grid md:grid-cols-3 gap-8"
+            className="!mt-5 !mb-5 grid md:grid-cols-3 gap-8"
           >
             {[
               { number: '4+', label: '制作年数' },
