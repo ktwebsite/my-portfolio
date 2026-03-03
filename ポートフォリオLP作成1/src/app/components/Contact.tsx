@@ -1,29 +1,13 @@
 import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
-import { useRef, useState } from 'react';
-import { Mail, MessageCircle, Send } from 'lucide-react';
+import { useRef } from 'react';
+import { Mail, MessageCircle, Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { useContactForm } from '../hooks/useContactForm';
 
 export function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // フォーム送信のロジックをここに追加
-    console.log('Form submitted:', formData);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const { formRef, formData, status, isSubmitting, handleChange, handleSubmit } = useContactForm();
 
   return (
     <section id="contact" ref={ref} className="w-full py-32 bg-gray-50">
@@ -73,8 +57,8 @@ export function Contact() {
                 </div>
                 <div>
                   <div className="text-sm text-gray-500 mb-1">Email</div>
-                  <a href="mailto:your.email@example.com" className="hover:underline">
-                    your.email@example.com
+                  <a href="mailto:yancunjiantai@gmail.com" className="hover:underline">
+                    yancunjiantai@gmail.com
                   </a>
                 </div>
               </div>
@@ -86,11 +70,8 @@ export function Contact() {
                 <div>
                   <div className="text-sm text-gray-500 mb-1">SNS</div>
                   <div className="space-y-1">
-                    <a href="https://twitter.com" className="block hover:underline">
-                      Twitter / X
-                    </a>
-                    <a href="https://linkedin.com" className="block hover:underline">
-                      LinkedIn
+                    <a href="https://x.com/iwamura__980" className="block hover:underline">
+                      X
                     </a>
                   </div>
                 </div>
@@ -112,7 +93,7 @@ export function Contact() {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-sm space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-sm space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm mb-2">
                   お名前 *
@@ -163,12 +144,41 @@ export function Contact() {
 
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full px-6 py-4 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors flex items-center justify-center gap-2"
+                disabled={isSubmitting}
+                whileHover={!isSubmitting ? { scale: 1.02 } : {}}
+                whileTap={!isSubmitting ? { scale: 0.98 } : {}}
+                className={`w-full px-6 py-4 rounded-lg transition-colors flex items-center justify-center gap-2 ${
+                  status === 'success'
+                    ? 'bg-green-600 text-white'
+                    : status === 'error'
+                    ? 'bg-red-600 text-white'
+                    : 'bg-gray-900 text-white hover:bg-gray-800'
+                } ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
               >
-                <span>送信する</span>
-                <Send className="w-4 h-4" />
+                {status === 'sending' && (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>送信中...</span>
+                  </>
+                )}
+                {status === 'success' && (
+                  <>
+                    <CheckCircle className="w-4 h-4" />
+                    <span>送信完了</span>
+                  </>
+                )}
+                {status === 'error' && (
+                  <>
+                    <AlertCircle className="w-4 h-4" />
+                    <span>送信失敗</span>
+                  </>
+                )}
+                {status === 'idle' && (
+                  <>
+                    <span>送信する</span>
+                    <Send className="w-4 h-4" />
+                  </>
+                )}
               </motion.button>
             </form>
           </motion.div>

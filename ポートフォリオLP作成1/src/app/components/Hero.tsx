@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Twitter, Mail } from 'lucide-react';
 
 export function Hero() {
   return (
@@ -23,7 +23,7 @@ export function Hero() {
 
             <div className="flex gap-3 !mt-5">
               <a
-                href="https://github.com"
+                href="https://github.com/ktwebsite"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 border border-gray-300 rounded flex items-center justify-center hover:border-gray-900 hover:bg-gray-900 hover:text-white transition-all"
@@ -31,15 +31,15 @@ export function Hero() {
                 <Github className="w-4 h-4" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://x.com/iwamura__980"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 border border-gray-300 rounded flex items-center justify-center hover:border-gray-900 hover:bg-gray-900 hover:text-white transition-all"
               >
-                <Linkedin className="w-4 h-4" />
+                <Twitter className="w-4 h-4" />
               </a>
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:yancunjiantai@gmail.com"
                 className="w-10 h-10 border border-gray-300 rounded flex items-center justify-center hover:border-gray-900 hover:bg-gray-900 hover:text-white transition-all"
               >
                 <Mail className="w-4 h-4" />
@@ -59,7 +59,7 @@ export function Hero() {
               {/* Main image container */}
               <div className="absolute inset-0 overflow-hidden rounded-lg bg-gray-100">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&w=480&q=80"
+                  src="/profile.jpg"
                   alt="Profile"
                   className="w-full h-full object-cover"
                 />

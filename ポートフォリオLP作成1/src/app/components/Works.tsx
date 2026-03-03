@@ -5,11 +5,13 @@ import { ExternalLink, Github } from 'lucide-react';
 
 const projects = [
   {
-    title: 'E-Commerce Platform',
+    title: 'ピザ値段比較アプリ',
     category: 'Web Application',
-    description: 'モダンなUIとシームレスなUXを実現したECプラットフォーム',
-    image: 'https://images.unsplash.com/photo-1566915896913-549d796d2166?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXZlbG9wZXIlMjBjb2RpbmclMjB3b3Jrc3BhY2V8ZW58MXx8fHwxNzcxOTM1MjMzfDA&ixlib=rb-4.1.0&q=80&w=1080',
-    tags: ['React', 'TypeScript', 'Tailwind CSS'],
+    description: '各ピザチェーンの値段を比較できるWebアプリケーション',
+    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    tags: ['Next.js', 'TypeScript', 'Vercel'],
+    url: 'https://pizza-rank.vercel.app/',
+    github: 'https://github.com/ktwebsite/pizza-rank',
   },
   {
     title: 'Dashboard Analytics',
@@ -103,12 +105,26 @@ export function Works() {
                   transition={{ duration: 0.3 }}
                   className="absolute bottom-4 right-4 flex gap-2"
                 >
-                  <button className="p-2 bg-white rounded-full shadow-lg hover:scale-110 transition-transform">
-                    <ExternalLink className="w-4 h-4" />
-                  </button>
-                  <button className="p-2 bg-white rounded-full shadow-lg hover:scale-110 transition-transform">
-                    <Github className="w-4 h-4" />
-                  </button>
+                  {project.url && (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-white rounded-full shadow-lg hover:scale-110 transition-transform"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  )}
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-white rounded-full shadow-lg hover:scale-110 transition-transform"
+                    >
+                      <Github className="w-4 h-4" />
+                    </a>
+                  )}
                 </motion.div>
               </div>
               
